@@ -22,7 +22,11 @@ export function UploadForm() {
     amount:yup.number().required(),
     spots:yup.number().required(),
     descr:yup.string().required(),
-    rules:yup.string()
+    rules:yup.string(),
+    
+    first:yup.number(),
+    second:yup.number(),
+    third:yup.number(),
   })
   
   const {register,handleSubmit,formState:{errors}}=useForm({
@@ -50,7 +54,11 @@ export function UploadForm() {
       description:data.descr,
       rules:data.rules,
       bannerpath:"",
-      venue:""
+      venue:"",
+
+      first:data.first,
+      second:data.second,
+      third:data.third,
     })
     
   }
@@ -106,6 +114,10 @@ export function UploadForm() {
 
         <textarea  className='textarea' type="text" placeholder='Rules and regulations'{...register('rules')}/>
         {errors.rules?<p className='err'>{errors.rules.message}</p>:<></>}
+
+        <input type="number" placeholder='First prize' {...register('first')}/>
+        <input type="number" placeholder='Second prize' {...register('second')}/>
+        <input type="number" placeholder='Third prize' {...register('third')}/>
 
         <input type="submit" className='submit'/>
       </form>
