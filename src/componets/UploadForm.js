@@ -1,4 +1,3 @@
-import React from 'react'
 import {db} from '../Firebase/config'
 import {doc,setDoc} from 'firebase/firestore'
 import {useForm} from 'react-hook-form'
